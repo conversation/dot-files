@@ -14,10 +14,6 @@ alias lal='ls -lah'
 alias less='less -R'
 alias sub='subl -n'
 
-cd() {
-  builtin cd "$@" && ls
-}
-
 b() {
   bundle "$@" | grep -v '^Using'
 }

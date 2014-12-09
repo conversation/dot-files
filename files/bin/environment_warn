@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+WHITE_FG = "%F{white}"
+RED_BG = "%{\e[0;41m%}"
+BLUE_BG = "%{\e[0;44m%}"
+RESET_BG = "%K{0}"
+
+def environment
+  ENV['RAILS_ENV'] || ENV['RACK_ENV'] || ""
+end
+
+def env_bg_color
+  if environment == "production"
+    RED_BG
+  else
+    BLUE_BG
+  end
+end
+
+print "#{WHITE_FG}#{env_bg_color}#{environment.upcase}#{RESET_BG}"
